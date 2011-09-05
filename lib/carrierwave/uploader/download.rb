@@ -32,7 +32,9 @@ module CarrierWave
 
         def file
           if @file.blank?
+            puts "about to break"
             @file = Kernel.open(@uri.to_s)
+            puts "probably won't see me"
             @file = @file.is_a?(String) ? StringIO.new(@file) : @file
           end
           @file
